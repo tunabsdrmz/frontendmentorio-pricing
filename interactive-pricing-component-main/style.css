@@ -1,0 +1,231 @@
+:root{
+    /*Primary*/
+  /*1*/  --Soft-Cyan-Full-Slider-Bar: hsl(174, 77%, 80%);
+    --Strong-Cyan-Slider-Backround: hsl(174, 86%, 45%);
+    --Light-Grayish-Red-Discount-Background: hsl(14, 92%, 95%);
+    --Light-Red-Discount-Text: hsl(15, 100%, 70%);
+    --Pale-Blue-CTA-Text: hsl(226, 100%, 87%);
+
+    /*Neutral*/
+    --White-Pricing-Component-Background: hsl(0, 0%, 100%);
+    --Very-Pale-Blue-Main-Background: hsl(230, 100%, 99%);
+  /*2*/  --Light-Grayish-Blue-Empty-Slider-Bar: hsl(224, 65%, 95%);
+    --Light-Grayish-Blue-Toggle-Background: hsl(223, 50%, 87%);
+    --Grayish-Blue-Text: hsl(225, 20%, 60%);
+    --Dark-Desaturated-Blue-Text---CTA-Background: hsl(227, 35%, 25%);
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Manrope , sans-serif;
+    font-size: 15px;
+    background-color: var(--Very-Pale-Blue-Main-Background);
+    /*Weights: 600, 800*/
+}
+header{
+    position: relative;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    text-align: center;
+}
+.bg-div{
+    position: absolute;
+    background-image: url(images/bg-pattern.svg);
+    background-position: center;
+    width: 100%;
+    height: 200%;
+    top: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -2;
+
+}/*bunu da responsive left yap*/
+.bg-div-icon{
+    position: absolute;
+    background-image: url(images/pattern-circles.svg);
+    width: 150px;
+    height: 150px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+    top: 3%;
+    left: 45%;
+    
+    
+}
+#header-h2{
+    padding-bottom: 1%;
+    color: var(--Dark-Desaturated-Blue-Text---CTA-Background);
+    font-weight: 800;
+    font-size: 28px;
+}
+#header-p{
+    color: var(--Grayish-Blue-Text);
+}
+.container-div{
+    background-color: var(--White-Pricing-Component-Background);
+    width: 50%;
+    margin: auto;
+    border-radius: 7px;
+    padding: 5% 5% 3% 5%;
+    box-shadow: 0px 0px 4px 1px var(--Dark-Desaturated-Blue-Text---CTA-Background);
+}
+.section-toggle-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12%;
+    color: var(--Grayish-Blue-Text);
+}
+.Pageviews-section{
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;   
+}
+.month-p{
+    font-weight: 600;
+}
+.dollar-span{
+    color: var(--Dark-Desaturated-Blue-Text---CTA-Background);
+    font-weight: 800;
+    font-size: 3em;
+}
+
+.slide-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 8%;
+    width: 100%;
+    
+    
+}
+.slider-slide{
+    width: 100%;
+    height: 10px;
+    -webkit-appearance: none;
+    border-radius: 25px;
+    background: linear-gradient(to right ,
+                            hsl(174, 77%, 80%) 0%,
+                            hsl(174, 77%, 80%) 50%,
+                            hsl(224, 65%, 95%) 0%,
+                            hsl(224, 65%, 95%) 100% );
+
+}
+.slider-slide::-webkit-slider-thumb{
+    cursor: pointer;
+    appearance: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--Strong-Cyan-Slider-Backround);
+    background-image: url(images/icon-slider.svg);
+    box-shadow: 0px 0px 15px 2px var(--Strong-Cyan-Slider-Backround);
+    opacity: 0.8; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    
+}
+.slider-slide::-webkit-slider-thumb:active{
+    opacity: 1;
+    box-shadow: none;
+}
+
+.billing-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    gap: 0.5em;
+    padding-bottom: 12%;  
+    color: var(--Grayish-Blue-Text);
+    font-weight: 600;
+    position: relative;
+}
+.billing-section .custom-checkbox{
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider{
+    position: relative;
+    display: block;
+    cursor: pointer;
+    background-color: var(--Light-Grayish-Blue-Toggle-Background);
+    transition: 0.4s;
+    width: 4em;
+    height: 1.85em;
+}
+.slider::before{
+    content: '';
+    position: absolute;
+    background-color: var(--White-Pricing-Component-Background);
+    width: 1.5em;
+    height: 1.5em;
+    transition: 0.4s;
+    top: .15em;
+    left: .25em;
+}
+input:checked + .slider{
+    background-color: var(--Strong-Cyan-Slider-Backround);
+}
+/*buraya responsive translate koy*/
+input:checked + .slider::before{
+    transform: translateX(2em);
+}
+.slider.round{
+    border-radius: 1.5em;
+}
+.slider.round::before{
+    border-radius: 1.5em;
+}
+#span-discount{
+    color: var(--Light-Red-Discount-Text);
+    background-color: var(--Light-Grayish-Red-Discount-Background);
+    border-radius: 15px;
+    width: 110px;
+    text-align: center;
+}
+.line{
+    margin-bottom: 7%;
+    width: 100%;
+    height: 1px;
+    opacity: 0.3;
+    background-color: var(--Grayish-Blue-Text);
+}
+.footer-div{
+    position: relative;
+    line-height: 2.5em;  
+   
+}
+.footer-items{color: var(--Grayish-Blue-Text);}
+
+.check-icon{
+    padding-right: 0.5em;
+    width: 20px;
+}
+/*Add media query for left property*/
+.trial-button{
+    position: absolute;
+    top: 30%;
+    left: 62%;
+    border: 1px solid var(--Dark-Desaturated-Blue-Text---CTA-Background);
+    border-radius: 30px;
+    padding: 0.3em 3em;
+    font-weight: 600;
+    background-color: var(--Dark-Desaturated-Blue-Text---CTA-Background);
+    color: var(--Grayish-Blue-Text); 
+}
+.trial-button:hover{color: var(--Pale-Blue-CTA-Text);}
+.attribution{padding-top: 3%;}
+
